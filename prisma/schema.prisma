@@ -5,10 +5,43 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
+  url = env("DATABASE_URL")
 }
+
+model User{
+  id Int @id @default(autoincrement())
+  name String
+  email String @unique
+  password String
+
+  characters Character[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model Character{
+
+  id Int @id @default(autoincrement())
+  original_character_id Int
+  name String
+  species String
+  gender String
+  origin String
+  location String
+  image String
+  status String
+  
+  user_id Int
+  user User @relation(fields: [user_id], references: [id])
+  
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@index([user_id])
+  }
