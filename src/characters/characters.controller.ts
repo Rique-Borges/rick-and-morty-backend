@@ -15,7 +15,6 @@ export class CharactersController {
   // Meus Personagens (lista)
  @Get('characters')
 listMine(@Req() req: any) {
-  console.log('USER NO TOKEN:', req.user);
   return this.svc.listMine(req.user?.user_id);
 }
 
