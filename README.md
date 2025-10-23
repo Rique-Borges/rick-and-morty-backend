@@ -1,78 +1,76 @@
-# Backend — Rick & Morty App
+  # Backend — Rick & Morty App
 
-Small NestJS backend for the Rick & Morty demo app (TypeScript, NestJS, Prisma).
+Pequeno backend em NestJS para o aplicativo demo do Rick & Morty (TypeScript, NestJS, Prisma).
 
-Quick pointers
-- Entrypoint: src/main.ts
-- App module: src/app.module.ts
-- Database schema: prisma/schema.prisma (Prisma + SQLite by default)
-- Auth: src/auth
-- Characters: src/characters
-- Prisma service: src/prisma/prisma.service.ts
+## Pontos principais
+- Ponto de entrada: `src/main.ts`
+- Módulo principal: `src/app.module.ts`
+- Schema do banco de dados: `prisma/schema.prisma` (Prisma + SQLite por padrão)
+- Autenticação: `src/auth`
+- Personagens: `src/characters`
+- Serviço do Prisma: `src/prisma/prisma.service.ts`
 
-Prerequisites
+## Pré-requisitos
 - Node.js >= 18
 - npm
-- (Optional) npx for running Prisma CLI
+- (Opcional) npx para executar o Prisma CLI
 
-Setup (local development)
-1. Install dependencies
+## Configuração (desenvolvimento local)
+1. Instale as dependências
    ```bash
    npm install
    ```
 
-2. Create a .env file at the project root with at least:
+2. Crie um arquivo `.env` na raiz do projeto com, no mínimo:
    ```env
    DATABASE_URL="file:./dev.db"
-   JWT_SECRET="a-strong-secret"
+   JWT_SECRET="uma-senha-secreta-forte"
    ```
 
-Database (Prisma)
-- Generate Prisma Client (run after changing schema):
+## Banco de Dados (Prisma)
+- Gerar o Prisma Client (execute após alterar o schema):
   ```bash
   npx prisma generate
   ```
-- Apply migrations (creates SQLite file & schema):
+- Aplicar migrações (cria o arquivo e o schema SQLite):
   ```bash
   npx prisma migrate deploy
   ```
-  For iterative development you can run:
+  Para desenvolvimento iterativo, você pode executar:
   ```bash
   npx prisma migrate dev --name init
   ```
-  Or to push schema without migrations:
+  Ou para aplicar o schema sem migrações:
   ```bash
   npx prisma db push
   ```
 
-Run
-- Development (watch):
+## Execução
+- Desenvolvimento (modo watch):
   ```bash
   npm run start:dev
   ```
-- Production:
+- Produção:
   ```bash
   npm run build
   npm run start:prod
   ```
 
-
-
-Useful commands
-- Inspect DB with Prisma Studio:
+## Comandos úteis
+- Inspecionar o banco de dados com o Prisma Studio:
   ```bash
   npx prisma studio
   ```
-- Recreate DB (dev) and run migrations:
+- Recriar o banco (dev) e rodar as migrações novamente:
   ```bash
   npx prisma migrate reset
   ```
 
-Notes
-- Ensure JWT_SECRET is set for authentication to work.
-- If you change prisma/schema.prisma, run `npx prisma generate` and apply migrations.
-- API routes are defined in controllers under src/* (e.g. src/characters, src/rm, src/auth).
-- The project uses SQLite by default; change DATABASE_URL to another provider if needed.
+## Notas
+- Certifique-se de que `JWT_SECRET` está configurado para que a autenticação funcione.
+- Se alterar o arquivo `prisma/schema.prisma`, execute `npx prisma generate` e aplique as migrações.
+- As rotas da API estão definidas nos controladores em `src/*` (ex: `src/characters`, `src/rm`, `src/auth`).
+- O projeto utiliza SQLite por padrão; altere `DATABASE_URL` se quiser usar outro provedor.
 
-License
+## Licença
 - MIT
