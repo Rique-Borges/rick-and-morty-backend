@@ -14,10 +14,10 @@ export class UsersService {
         });
     }
     //Método Criar Usuário
-    async create(data : Omit<User, 'id' | 'createdAt' | 'updatedAt'>): Promise<User> {
+    async create(data : Omit<User, 'id' | 'created_at' | 'updated_at'>): Promise<User> {
         return this.prisma.user.create({
             data,
         });
     }
-    
+
 }
