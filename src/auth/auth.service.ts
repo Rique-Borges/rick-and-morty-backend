@@ -51,7 +51,7 @@ export class AuthService {
     }
 
     //Gerar payload do JWT
-    const payload = {sub: user.id, email: user.email};
+    const payload = {user_id: user.id, email: user.email};
 
     //Assinar e retornar o token
     return{
