@@ -71,6 +71,3 @@ Pequeno backend em NestJS para o aplicativo demo do Rick & Morty (TypeScript, Ne
 - Se alterar o arquivo `prisma/schema.prisma`, execute `npx prisma generate` e aplique as migrações.
 - As rotas da API estão definidas nos controladores em `src/*` (ex: `src/characters`, `src/rm`, `src/auth`).
 - O projeto utiliza SQLite por padrão; altere `DATABASE_URL` se quiser usar outro provedor.
-
-## Licença
-- MIT
