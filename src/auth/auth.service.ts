@@ -49,7 +49,6 @@ export class AuthService {
     if (!isPasswordMatching) {
       throw new UnauthorizedException('Credenciais Inválidas')
     }
-    console.log('BODY recebido:', loginUserDto);
 
     //Gerar payload do JWT
     const payload = {user_id: user.id, email: user.email};

@@ -34,7 +34,7 @@ Pequeno backend em NestJS para o aplicativo demo do Rick & Morty (TypeScript, Ne
   ```
 - Aplicar migrações (cria o arquivo e o schema SQLite):
   ```bash
-  npx prisma migrate deploy
+  npx prisma migrate dev
   ```
   Para desenvolvimento iterativo, você pode executar:
   ```bash
